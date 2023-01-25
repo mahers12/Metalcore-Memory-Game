@@ -1,32 +1,84 @@
-# Brah-Voh-Jeu-Lee-Ett
+Rules:
 
-## Overview
+1- The board consists of 8 pairs of pictures.
+2- four rows- four cols
+3- Each turn, the player will flip over two pictures, one at a time.
+4- If the two pictures match, then they are removed from the game. Otherwise, they are flipped again.
+5- The game ends when all the pictures are matched.
 
-The goal of this game is to beat the dealer by getting drawing a hand value of 21 or less.
+## Data Structures :
 
-## Getting Started
+1-2D Array (4rows \* 4 cols) [state]: storing the current state of the ground
+turn to -1 when fliping the card
+Example:
+[[-1,2,5,-1],
+[3,1,3,6],
+[6,2,5,1],
+[-1,0,0,-1]]
 
-- Fork and clone this repo
-- cd into the repo and open it with code .
+2- Object [cardDetails] :the keys are the cards number and values are object storing the
+card details
+Example:
+let cardDetails={
+-1:{ /_flipped card_/
+image:"";
+},
+0:{
+image:link
+},
+1:{
+image:link
+}
+}
+3-variable selected card1 :variable holding the value of the first selected Card
+4-variable selected card2 :variable holding the value of the second selected Card
 
-## Brief Idea
+## Functions;
 
-. Create a dealer and a player.
-. Create a stand and a hit buttons.
-. Create a deck of 52 cards randomized.
-. Create an alert to announce winner/loser.
-. Create a replay function for the next round.
+1- startGame: reset the state array to all 0 , reset the cards ,state timer
+2- shuffle: will be shuffled the 2d array by assigning every card to two random empty spots
 
-## Steps
+3- checkMatch: if the selected card1 equal to selected card 2
+then return true, else return false
 
-Link here: [Welcome to my trello](https://trello.com/b/9Jo1dEMg/ga-in-10-weeks).
+3- setMatched: assign the value -1 to the selected spots in the state array and
+hide the cards elements on the UI
 
-- Create HTML and CSS; this will include the display, replay button, and stand and hit buttons.
-- Link CSS and JS to HTML.
-- Create an object for the deck of cards with an array of 52 cards.
-- Create functions for Computer decisions.
-- Create functions to deal and shuffle the cards.
-- Create a function to process the stand or the hit.
-- Create a function to determine if the game ends.
-- Create a function that determines the result.
-- Create an alert and a replay game option.
+4- flipCard: flip the card image on the UI
+
+6- checkEnd:if all cells in the state array are -1
+
+7- endGame:end the game,called by a timer
+
+8- createBoard: will create the board element at the beginning of the game
+
+## EventLiseners:
+
+1-every card on the UI will event listener for the click
+
+## Resouces :
+
+9 images :
+1 image for the flipped card
+8 differentt images
+
+## Game flow:
+
+1-we call startGame
+startGame will call shuffle
+startGame will call creatBoard
+
+2-when triggering the event listener of the card:
+
+first click:
+set the selected card to the value of the spot in the state array
+
+second click:
+call checkMatch,setMatched ,flipCard,checkEnd
+
+3-when the timer end,call endGame
+
+## HTML
+
+Maybe set up a timer
+Set-up dark mode
