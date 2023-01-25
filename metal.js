@@ -3,6 +3,40 @@ let state
 let cardDetails
 let firstCard
 let secondCard
+let cardPicked = []
+const cardArray = [ 
+    {
+    name: "Badomens"
+    img: "images/Badomens.png"
+},
+{
+    name: "Lampofgod"
+    img: "images/Lambofgod.png"
+},
+{
+    name: "Motionless"
+    img: "images/Motionless.png"
+},
+{
+name: "Shadowofintent"
+img: "images/Shadowofintent.png"
+},
+{
+    name: "Tallah"
+    img: "images/Tallah.png"
+},
+{    name: "Thecallous"
+img: "images/Thecallousdaoboys.png"
+},
+{
+    name: "Thedevil"
+    img: "images/Thedevilwearsprada.png"
+},
+{
+    name: "Underoath"
+    img: "Underoath.png"
+},
+]
 
 startGame()
 
@@ -42,12 +76,18 @@ function createBoard() {
       card.classList.add('card')
       ///card.addEventListener('click', flippedCard)
       rowEl.appendChild(card)
+     // card.addEventListener(click, flipcard);
     }
 
     brd.appendChild(rowEl)
   }
 }
+function flipcard() {
+var cardDetails = this.setAttribute('cardDetails');
+cardPicked.push(cardArray[cardDetails.name]);
 
+
+}
 function shuffleCards() {
   let col = Math.floor(4 * Math.random()) //2
   let row = Math.floor(4 * Math.random()) //2
@@ -65,6 +105,7 @@ function shuffleCards() {
     state[row][col] = i
   }
 }
+
 
 /*
 let row = document.createElement('rw')
@@ -98,24 +139,6 @@ const photoArr = {
 sabaton: link
 }
 
-3: {
-    jackwhite: "link"
-}
-4: {
-    rammstein:
-}
-
-5: {
-    halestorm : "link"
-
-}
-
-6: {
-    decapitated: "link"
-}
-
-7: {
-    motionlessInWhite: "link"
 
 }
 
@@ -140,7 +163,6 @@ card.addEventListener('click,' checkCard);
 function checkCard ( {
     openCards.push(this);
 
-})
 
 
 const cardDetails = document.createElement("cardDetails");
@@ -159,3 +181,7 @@ Var random = math.floor(Math.random () * (card.length-1));
 
 
 */
+
+//cardDetails.addEventListner("click," logFunction);//
+//.addEventListner('click,' function(flip)
+//for (let i = 0; i< 16; i++) {//

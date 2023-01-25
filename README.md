@@ -6,10 +6,16 @@ Rules:
 4- If the two pictures match, then they are removed from the game. Otherwise, they are flipped again.
 5- The game ends when all the pictures are matched.
 
+## Note
+
+1-8 mean flipped card
+-1 mean always open card
+if we do not select card we set the variable to '-1'
+
 ## Data Structures :
 
 1-2D Array (4rows \* 4 cols) [state]: storing the current state of the ground
-turn to -1 when fliping the card
+turn to -1 when opening the card
 Example:
 [[-1,2,5,-1],
 [3,1,3,6],
