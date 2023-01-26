@@ -1,6 +1,19 @@
 body {
-background-color: black;
-text-align: center;
-color: #d5c70c;
-border: 30%;
+background-image: url(https://wallpaper.dog/large/20498948.jpg);
+color: #978989;
+font-size: x-large;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-weight: 500;
+text-decoration:wavy;
+text-align-last: left;
+text-align: indent;
+
+}
+h2 {
+    color:crimson;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 300;
+}
+footer {
+    text-align: right;
 }

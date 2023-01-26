@@ -145,7 +145,7 @@ function handleClick(row, col) {
       firstCard = -1
       secondCard = -1
       viewCards()
-    }, 100)
+    }, 2000)
   }
 }
 function checkMatch() {
@@ -161,4 +161,23 @@ function checkMatch() {
     state[row1][col1] = -1
     state[row2][col2] = -1
   }
+}
+
+var timeLeft = 20
+var elem = document.getElementById('timer')
+var timerId = setInterval(countdown, 1000)
+
+function countdown() {
+  if (timeLeft == -1) {
+    clearTimeout(timer)
+    showCards()
+    alert('You Lost!')
+  } else {
+    elem.innerHTML = timeLeft + ' seconds remaining'
+    timeLeft--
+  }
+}
+
+function doSomething() {
+  alert('Hi')
 }
