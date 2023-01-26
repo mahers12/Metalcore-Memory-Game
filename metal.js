@@ -4,40 +4,6 @@ let cardDetails
 let firstCard
 let secondCard
 let cardPicked = []
-const cardArray = [ 
-    {
-    name: "Badomens"
-    img: "images/Badomens.png"
-},
-{
-    name: "Lampofgod"
-    img: "images/Lambofgod.png"
-},
-{
-    name: "Motionless"
-    img: "images/Motionless.png"
-},
-{
-name: "Shadowofintent"
-img: "images/Shadowofintent.png"
-},
-{
-    name: "Tallah"
-    img: "images/Tallah.png"
-},
-{    name: "Thecallous"
-img: "images/Thecallousdaoboys.png"
-},
-{
-    name: "Thedevil"
-    img: "images/Thedevilwearsprada.png"
-},
-{
-    name: "Underoath"
-    img: "Underoath.png"
-},
-]
-
 startGame()
 
 function startGame() {
@@ -59,6 +25,7 @@ function startGame() {
   secondCard = '-1'
 
   createBoard()
+  addEventsListeners()
   shuffleCards()
   console.log(state)
 }
@@ -74,19 +41,23 @@ function createBoard() {
       var card = document.createElement('img')
       card.setAttribute('src', cardDetails['0'].link)
       card.classList.add('card')
+      card.classList.add(`card_${u}${i}`)
       ///card.addEventListener('click', flippedCard)
       rowEl.appendChild(card)
-     // card.addEventListener(click, flipcard);
+      // card.addEventListener(click, flipcard);
     }
 
     brd.appendChild(rowEl)
   }
 }
 function flipcard() {
-var cardDetails = this.setAttribute('cardDetails');
-cardPicked.push(cardArray[cardDetails.name]);
-
-
+  var cardDetails = this.setAttribute('cardDetails')
+  cardPicked.push(cardArray[cardDetails.name])
+  cards.forEach((card) => card.addEventListener('click', flipCard))
+  if (firstCard) {
+    secondCard = true
+    this.classList.add('flip')
+  }
 }
 function shuffleCards() {
   let col = Math.floor(4 * Math.random()) //2
@@ -104,84 +75,90 @@ function shuffleCards() {
     }
     state[row][col] = i
   }
+  hideCards()
 }
 
-
-/*
-let row = document.createElement('rw')
-for (let i = 0; i < 4; i++) {
-  const row = document.createElement('rw')
-
-  let column = document.createElement('clm')
-  for (let j = 0; j < 4; i++);
-
+function showCards() {
+  for (let row = 0; row < 4; row++) {
+    for (let col = 0; col < 4; col++) {
+      showCard(row, col)
+    }
+  }
 }
-board.appendChild(row);
-board.appendChild(column);
-
-document.getElementById("board").setAttribute("href, ")
-const photoArr = {
-    let cardDetails = [
-        {
-        -1: "flipped card"
-        image:  "url"
-        };
-        }
-        0: "first image"
-        image:link
-    }; 
+function hideCards() {
+  for (let row = 0; row < 4; row++) {
+    for (let col = 0; col < 4; col++) {
+      hideCard(row, col)
+    }
+  }
 }
-        1: "second image"
-        image: "link" 
-};
-{
-2: {
-sabaton: link
+function viewCards() {
+  for (let row = 0; row < 4; row++) {
+    for (let col = 0; col < 4; col++) {
+      if (state[row][col] !== -1) {
+        hideCard(row, col)
+      } else {
+        showCard(row, col)
+      }
+    }
+  }
 }
+function showCard(row, col) {
+  let item = state[row][col]
+  if (item == -1) {
+    return
+  }
 
+  const cardEl = document.querySelector(`.card_${row}${col}`)
 
+  cardEl.setAttribute('src', cardDetails[item].link)
 }
-
-var firstSelectedCard = ["0,1,2,3,4,5,6,7"];
-function storeValue( {
-    console.log(firstSelectedCard)
-})
-
-var secondSelectedCard = ["0,1,2,3,4,5,6,7"]
-function storeValue( {
-    console.log(secondSelectedCard);
-})
-
-
-
-let matchedCards = document.getElementsByClassName('match')
-let flippedCards = []
-card.addEventListener('click', displayCard)
-card.addEventListener('click,' checkCard);
-
-
-function checkCard ( {
-    openCards.push(this);
-
-
-
-const cardDetails = document.createElement("cardDetails");
-const logFunction = () => {
-console.log ('card has been flipped')
-  
+function hideCard(row, col) {
+  const cardEl = document.querySelector(`.card_${row}${col}`)
+  cardEl.setAttribute('src', cardDetails[0].link)
 }
-cardDetails.addEventListner("click," logFunction);
-.addEventListner('click,' function(flip) 
-for (let i = 0; i< 16; i++) {
-
-
+function addEventsListeners() {
+  for (let row = 0; row < 4; row++) {
+    for (let col = 0; col < 4; col++) {
+      const cardEl = document.querySelector(`.card_${row}${col}`)
+      cardEl.addEventListener('click', () => {
+        handleClick(row, col)
+      })
+    }
+  }
 }
-)
-Var random = math.floor(Math.random () * (card.length-1));
+function handleClick(row, col) {
+  if (state[row][col] == -1) {
+    return
+  }
+  if (firstCard != -1 && firstCard[0] == row && firstCard[1] == col) {
+    return
+  }
 
+  showCard(row, col)
+  if (firstCard == -1) {
+    firstCard = [row, col]
+  } else if (secondCard == -1) {
+    secondCard = [row, col]
+    setTimeout(() => {
+      checkMatch()
+      firstCard = -1
+      secondCard = -1
+      viewCards()
+    }, 100)
+  }
+}
+function checkMatch() {
+  ///every card has row and col
+  const [row1, col1] = firstCard
 
-*/
+  let row2 = secondCard[0]
+  let col2 = secondCard[1]
+  let value1 = state[row1][col1]
+  let value2 = state[row2][col2]
 
-//cardDetails.addEventListner("click," logFunction);//
-//.addEventListner('click,' function(flip)
-//for (let i = 0; i< 16; i++) {//
+  if (value1 == value2) {
+    state[row1][col1] = -1
+    state[row2][col2] = -1
+  }
+}

@@ -8,9 +8,12 @@ Rules:
 
 ## Note
 
+state
 1-8 mean flipped card
 -1 mean always open card
+
 if we do not select card we set the variable to '-1'
+when we select a card, we set it to an array of row and col
 
 ## Data Structures :
 
