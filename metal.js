@@ -33,7 +33,6 @@ function startGame() {
 
 function createBoard() {
   brd.innerHTML = ''
-  //creating a table and its children
   for (var i = 0; i < 4; i++) {
     ///create the row element
     const rowEl = document.createElement('div')
