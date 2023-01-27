@@ -163,7 +163,7 @@ function checkMatch() {
   }
 }
 
-var timeLeft = 60
+var timeLeft = 20
 var elem = document.getElementById('timer')
 var timerId = setInterval(countdown, 1000)
 
