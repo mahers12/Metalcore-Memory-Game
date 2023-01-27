@@ -13,6 +13,4 @@ In this memory game, the player will try to match eight album covers. The player
 
 Successful intelligence officer with more than 10 years of professional experience. Seeking a career change to pivot into software development role. Driven self-starter and fast learner who has volunteered to help mentor and coach colleagues,who is willing to meet the most challenging organizational objectives through developing practical solutions, and is renowned for achieving excellence in results.
 
-![myimage](file:///Users/sarahmaher/Downloads/MYIMAGE.png)
-
 Welcome to my Trello page [Trello Page](https://trello.com/b/9Jo1dEMg/do-you-know-metalcore).
