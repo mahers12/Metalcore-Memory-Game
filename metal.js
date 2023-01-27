@@ -1,3 +1,4 @@
+const resetButton = document.getElementById('reset-button')
 const brd = document.querySelector('.board')
 let state
 let cardDetails
@@ -163,13 +164,14 @@ function checkMatch() {
   }
 }
 
-var timeLeft = 20
+var timeLeft = 60
 var elem = document.getElementById('timer')
 var timerId = setInterval(countdown, 1000)
 
 function countdown() {
-  if (timeLeft == -1) {
+  if (timeLeft <= -1) {
     clearTimeout(timer)
+    window.clearInterval(timerId)
     showCards()
     alert('You Lost!')
   } else {
@@ -177,7 +179,10 @@ function countdown() {
     timeLeft--
   }
 }
-
-function doSomething() {
-  alert('Hi')
-}
+resetButton.addEventListener('click', () => {
+  console.log('restart the game')
+  timeLeft = 60
+  window.clearInterval(timerId)
+  timerId = setInterval(countdown, 1000)
+  hideCards()
+})
