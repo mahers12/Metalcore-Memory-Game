@@ -16,10 +16,13 @@ The player will navigate to the webpage and the timer will immediately start. Th
 ## Credits
 
 What Is Metalcore? [What Is Metalcore?](https://www.liveabout.com/what-is-metalcore-1756187)
+
 The Best Metalcore Albums of 2022 by User Score [The Best Metalcore Albums of 2022 by User Score](https://www.albumoftheyear.org/ratings/user-highest-rated/2022/metalcore/)
 
 Backgorund Picture [Background Picture](https://wallpaper.dog/large/20498948.jpg)
+
 JavaScript Functions [JavaScript Functions](https://www.w3schools.com/js/js_functions.asp)
+
 GitHub [Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
 Coaching and assitance [Joseph Baba](https://www.linkedin.com/in/jbaba)
