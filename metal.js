@@ -51,18 +51,22 @@ function createBoard() {
   }
 }
 const checkForWin = () => {
-  console.log('checkForWin')
-  let i = 1
+  console.log('checkForWin', state)
+  let i = 0
   for (let x = 0; x < state.length; x++) {
     for (let y = 0; y < state[x].length; y++) {
+      console.log('checkstate: ', state[x][y])
       if (state[x][y] == 0) {
-        i++
         break
+      } else if (state[x][y] == -1) {
+        i++
       }
     }
-    if (i == 16) {
-      alert('You Win!')
-    }
+  }
+  console.log('i: ', i)
+  if (i == 16) {
+    alert('You Win!')
+    clearTimeout(timerId)
   }
 }
 
@@ -177,6 +181,7 @@ function checkMatch() {
     state[row1][col1] = -1
     state[row2][col2] = -1
   }
+  checkForWin()
 }
 
 let timeLeft = 40
