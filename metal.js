@@ -50,6 +50,10 @@ function createBoard() {
     brd.appendChild(rowEl)
   }
 }
+const checkForWin = () => {
+  console.log('checkForWin')
+}
+
 function flipcard() {
   var cardDetails = this.setAttribute('cardDetails')
   cardPicked.push(cardArray[cardDetails.name])
@@ -163,9 +167,9 @@ function checkMatch() {
   }
 }
 
-var timeLeft = 60
-var elem = document.getElementById('timer')
-var timerId = setInterval(countdown, 1000)
+let timeLeft = 40
+let elem = document.getElementById('timer')
+let timerId = setInterval(countdown, 1000)
 
 function countdown() {
   if (timeLeft <= -1) {
