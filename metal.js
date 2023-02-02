@@ -50,6 +50,26 @@ function createBoard() {
     brd.appendChild(rowEl)
   }
 }
+const checkForWin = () => {
+  console.log('checkForWin', state)
+  let i = 0
+  for (let x = 0; x < state.length; x++) {
+    for (let y = 0; y < state[x].length; y++) {
+      console.log('checkstate: ', state[x][y])
+      if (state[x][y] == 0) {
+        break
+      } else if (state[x][y] == -1) {
+        i++
+      }
+    }
+  }
+  console.log('i: ', i)
+  if (i == 16) {
+    alert('You Win!')
+    clearTimeout(timerId)
+  }
+}
+
 function flipcard() {
   var cardDetails = this.setAttribute('cardDetails')
   cardPicked.push(cardArray[cardDetails.name])
@@ -161,11 +181,12 @@ function checkMatch() {
     state[row1][col1] = -1
     state[row2][col2] = -1
   }
+  checkForWin()
 }
 
-var timeLeft = 60
-var elem = document.getElementById('timer')
-var timerId = setInterval(countdown, 1000)
+let timeLeft = 40
+let elem = document.getElementById('timer')
+let timerId = setInterval(countdown, 1000)
 
 function countdown() {
   if (timeLeft <= -1) {
