@@ -52,6 +52,18 @@ function createBoard() {
 }
 const checkForWin = () => {
   console.log('checkForWin')
+  let i = 1
+  for (let x = 0; x < state.length; x++) {
+    for (let y = 0; y < state[x].length; y++) {
+      if (state[x][y] == 0) {
+        i++
+        break
+      }
+    }
+    if (i == 16) {
+      alert('You Win!')
+    }
+  }
 }
 
 function flipcard() {
